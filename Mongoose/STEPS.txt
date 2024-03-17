@@ -1,0 +1,25 @@
+# Structure :
+
+Create a database folder.
+Create a models folder.
+Create a ConnectToDB file.
+Create 4 CRUD files.
+
+
+# CRUD Files :
+
+Use router to separate operations (POST, GET, PATCH, DELETE) into different files.
+Import collection from models folder in each file.
+Use create(), find(), updateOne(), deleteOne() functions.
+Perform operations.
+Export router from each file.
+
+
+# index.js :
+
+Import ConnectToDB file.
+Import all CRUD files.
+Connect to database.
+Perform routing.
+Use express.json() middleware for getting user input.
+Start the server.
