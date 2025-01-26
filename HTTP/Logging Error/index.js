@@ -2,6 +2,8 @@ const fs = require("fs");
 const http = require("http");
 
 
+const port = 3000;
+
 const server = http.createServer((req, res) => {
     /* Error flag */
     let error = true;
@@ -15,14 +17,9 @@ const server = http.createServer((req, res) => {
 
             else {
                 let message = `Date : ${Date()} \n  Path : ${req.url} \n  Message: An error has occurred!`;
-                fs.writeFile("./log.txt", message,
-                    (err) => {
-                        if (!err) {
-                            res.write("Error occurred!\nCheck the log file.");
-                            res.end();
-                        }
-                    }
-                );
+                fs.writeFileSync("./log.txt", message);
+                res.write("Error occurred!\nCheck the log file.");
+                res.end();
             }
             break;
 
@@ -38,6 +35,6 @@ const server = http.createServer((req, res) => {
 });
 
 
-server.listen(3000, () => {
-    console.log("Server started...");
+server.listen(port, () => {
+    console.log(`Server started on port ${port}...`);
 });

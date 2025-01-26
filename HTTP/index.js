@@ -13,16 +13,19 @@ Run this file and open localhost in your browser :
 
 const http = require('http');
 
+//Port
+const port = 3000;
 
-//Creating server :
+//Creating server
 const server = http.createServer((req, res) => {
-    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
     res.write("Sample response");
     res.end();
 });
 
 
-//Listening server :
-server.listen(3000, () => {
-    console.log("Server started...");
+//Listening to server
+server.listen(port, () => {
+    console.log(`Server started on port ${port}...`);
 });
